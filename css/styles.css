@@ -1,0 +1,24 @@
+button {
+  height: 150px;
+  width: 150px;
+}
+
+.num {
+  background-color: orange;
+}
+
+.ops {
+  background-color: darkgrey
+}
+
+.extra {
+  background-color: lightgrey;
+}
+
+.clear {
+  background-color: red;
+}
+
+#equal {
+  background-color: green;
+}
