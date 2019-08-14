@@ -1,6 +1,15 @@
 $(document).ready(function(){
+  var num1;
+  var num2;
+  var operator;
 
-
+  $("#button-land button.num").click(function() {
+    $("#display").append(this.innerHTML);
+  });
+  $("#button-land button.ops").click(function() {
+    num1 = $("#display").text();
+    
+  });
 
 });
 

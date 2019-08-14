@@ -1,26 +1,35 @@
 button {
-  height: 150px;
-  width: 150px;
+  height: 145px;
+  width: 145px;
+  margin: 3px;
+  border-color: darkgrey;
+  border-width: 2px;
+  border-radius: 10px;
 }
 
 .num {
   background-color: orange;
+  border-color: darkorange;
 }
 
 .ops {
   background-color: darkgrey
+  border-color: darkgrey;
 }
 
 .extra {
   background-color: lightgrey;
+  border-color: darkgrey;
 }
 
 .clear {
   background-color: red;
+  border-color: darkred;
 }
 
 #equal {
   background-color: green;
+    border-color: darkgreen;
 }
 
 #display {
@@ -28,7 +37,10 @@ button {
   text-align: right;
   font-size: 50px;
   font-family: monospace;
-  width: 100%;
+  width: 95%;
+  height: 75px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: white;
 }
 
@@ -41,8 +53,13 @@ button {
 }
 
 #button-land {
-  
+  font-size: 30px;
   margin-left: auto;
   margin-right: auto;
 
+}
+
+#dec {
+  background-color: lightgrey;
+  border-color: darkgrey;
 }
