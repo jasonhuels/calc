@@ -1,7 +1,7 @@
 $(document).ready(function(){
   var num1 = "";
   var num2 = "";
-  var result = ""
+  var result = "";
   var operator = "";
 
   $("#button-land button.num").click(function() {
@@ -13,13 +13,15 @@ $(document).ready(function(){
 
   });
   $("#button-land button.ops").click(function() {
+    console.log(num1);
+    console.log(num2);
+    console.log(result);
     if(num1 === "") {
-      num1 = parseInt($("#display").text());
+      num1 = parseFloat($("#display").text());
       $("#display").text("");
       operator = this.id;
-      console.log(operator);
     } else {
-      num2 = parseInt($("#display").text());
+      num2 = parseFloat($("#display").text());
       $("#display").text("");
       switch(operator) {
         case "add":
@@ -42,13 +44,16 @@ $(document).ready(function(){
           $("#display").append(result);
           operator = "";
           break;
-        default:
-          num1 = "";
-          num2 = "";
-          operator = "";
-          break;
+        // default:
+        //   num1 = "";
+        //   num2 = "";
+        //   operator = "";
+        //   break;
 
       }
+      num1 = result;
+      num2 = "";
+      operator = "";
     }
 
   });
