@@ -10,7 +10,7 @@ $(document).ready(function(){
     //   $("#display").text("");
     // }
     $("#display").append(this.innerHTML);
-
+    $("#old").append(this.innerHTML);
   });
   $("#button-land button.ops").click(function() {
     // console.log(num1);
@@ -18,10 +18,13 @@ $(document).ready(function(){
     // console.log(result);
     if(num1 === "") {
       num1 = parseFloat($("#display").text());
+      // $("#old").append(num1 + this.innerHTML);
+      $("#old").append(this.innerHTML);
       $("#display").text("");
       operator = this.id;
     } else {
       num2 = parseFloat($("#display").text());
+      $("#old").append(this.innerHTML);
       $("#display").text("");
       switch(operator) {
         case "add":
