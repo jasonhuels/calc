@@ -3,77 +3,58 @@ $(document).ready(function(){
   var num2 = "";
   var result = "";
   var operator = "";
+  var readyToCalc = false;
 
 /////////////// Number Buttons //////////////////
   $("#button-land button.num").click(function() {
-    if(result !== "") {
-      //$("#old").text(result);
-      //result = "";
-      num1 = result;
-      $("#display").text("");
-    } 
-    $("#display").append(this.innerHTML);
-    $("#old").append(this.innerHTML);
-
+    if(num1 === "") {
+      $("#display").append(this.innerHTML);
+    } else if(!readyToCalc) {
+      $("#display").text(this.innerHTML);
+      readyToCalc = true;
+    } else {
+      $("#display").append(this.innerHTML);
+    }
   });
   /////////////// Operator Buttons /////////////////
   $("#button-land button.ops").click(function() {
-    if(result !== "") {
-      $("#display").text(result);
-      //result = "";
-      num1 = result;
-      //$("#display").text("");
-    }//////
-    if(num1 === "") {
+    if(!readyToCalc) {
       num1 = parseFloat($("#display").text());
-      // $("#old").append(num1 + this.innerHTML);
-      $("#old").append(this.innerHTML);
-      $("#display").text("");
+      $("#old").append(num1);
+      if(this.id !== "equal") {
+        $("#old").append(this.innerHTML);
+      }
       operator = this.id;
     } else {
       num2 = parseFloat($("#display").text());
-      //$("#old").append(this.innerHTML);
-      $("#display").text("");
+      $("#old").append(num2);
+      if(this.id !== "equal") {
+        $("#old").append(this.innerHTML);
+      }
       switch(operator) {
         case "add":
           result = add(num1, num2);
-          $("#display").append(result);
-          $("#old").append("+");
-          num1 = "";
-          num2 = "";
-          operator = "";
+          $("#display").text(result);
           break;
         case "sub":
           result = sub(num1, num2);
-          $("#display").append(result);
-          $("#old").append("-");
-          num1 = "";
-          num2 = "";
-          operator = "";
+          $("#display").text(result);
           break;
         case "divide":
           result = divide(num1, num2);
-          $("#display").append(result);
-          $("#old").append("/");
-          num1 = "";
-          num2 = "";
-          operator = "";
+          $("#display").text(result);
           break;
         case "mult":
           result = mult(num1, num2);
-          $("#display").append(result);
-          $("#old").append("*");
-          num1 = "";
-          num2 = "";
-          operator = "";
+          $("#display").text(result);
           break;
-        // default:
-        //   num1 = "";
-        //   num2 = "";
-        //   operator = "";
-        //   break;
+        }
+        num1 = result;
+        num2 = "";
+        operator = this.id;
+        readyToCalc = false;
       }
-    }
+
   });
 });
 
