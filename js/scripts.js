@@ -4,18 +4,26 @@ $(document).ready(function(){
   var result = "";
   var operator = "";
 
+/////////////// Number Buttons //////////////////
   $("#button-land button.num").click(function() {
-    // if(result !== "") {
-    //   result = "";
-    //   $("#display").text("");
-    // }
+    if(result !== "") {
+      //$("#old").text(result);
+      //result = "";
+      num1 = result;
+      $("#display").text("");
+    } 
     $("#display").append(this.innerHTML);
     $("#old").append(this.innerHTML);
+
   });
+  /////////////// Operator Buttons /////////////////
   $("#button-land button.ops").click(function() {
-    // console.log(num1);
-    // console.log(num2);
-    // console.log(result);
+    if(result !== "") {
+      $("#display").text(result);
+      //result = "";
+      num1 = result;
+      //$("#display").text("");
+    }//////
     if(num1 === "") {
       num1 = parseFloat($("#display").text());
       // $("#old").append(num1 + this.innerHTML);
@@ -24,12 +32,13 @@ $(document).ready(function(){
       operator = this.id;
     } else {
       num2 = parseFloat($("#display").text());
-      $("#old").append(this.innerHTML);
+      //$("#old").append(this.innerHTML);
       $("#display").text("");
       switch(operator) {
         case "add":
           result = add(num1, num2);
           $("#display").append(result);
+          $("#old").append("+");
           num1 = "";
           num2 = "";
           operator = "";
@@ -37,6 +46,7 @@ $(document).ready(function(){
         case "sub":
           result = sub(num1, num2);
           $("#display").append(result);
+          $("#old").append("-");
           num1 = "";
           num2 = "";
           operator = "";
@@ -44,6 +54,7 @@ $(document).ready(function(){
         case "divide":
           result = divide(num1, num2);
           $("#display").append(result);
+          $("#old").append("/");
           num1 = "";
           num2 = "";
           operator = "";
@@ -51,6 +62,7 @@ $(document).ready(function(){
         case "mult":
           result = mult(num1, num2);
           $("#display").append(result);
+          $("#old").append("*");
           num1 = "";
           num2 = "";
           operator = "";
@@ -60,7 +72,6 @@ $(document).ready(function(){
         //   num2 = "";
         //   operator = "";
         //   break;
-
       }
     }
   });
