@@ -5,17 +5,17 @@ $(document).ready(function(){
   var operator = "";
 
   $("#button-land button.num").click(function() {
-    if(result !== "") {
-      result = "";
-      $("#display").text("");
-    }
+    // if(result !== "") {
+    //   result = "";
+    //   $("#display").text("");
+    // }
     $("#display").append(this.innerHTML);
 
   });
   $("#button-land button.ops").click(function() {
-    console.log(num1);
-    console.log(num2);
-    console.log(result);
+    // console.log(num1);
+    // console.log(num2);
+    // console.log(result);
     if(num1 === "") {
       num1 = parseFloat($("#display").text());
       $("#display").text("");
@@ -27,21 +27,29 @@ $(document).ready(function(){
         case "add":
           result = add(num1, num2);
           $("#display").append(result);
+          num1 = "";
+          num2 = "";
           operator = "";
           break;
         case "sub":
           result = sub(num1, num2);
           $("#display").append(result);
+          num1 = "";
+          num2 = "";
           operator = "";
           break;
         case "divide":
           result = divide(num1, num2);
           $("#display").append(result);
+          num1 = "";
+          num2 = "";
           operator = "";
           break;
         case "mult":
           result = mult(num1, num2);
           $("#display").append(result);
+          num1 = "";
+          num2 = "";
           operator = "";
           break;
         // default:
@@ -51,13 +59,8 @@ $(document).ready(function(){
         //   break;
 
       }
-      num1 = result;
-      num2 = "";
-      operator = "";
     }
-
   });
-
 });
 
 function add(number1, number2) {
