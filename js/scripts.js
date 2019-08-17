@@ -48,7 +48,16 @@ $(document).ready(function(){
           result = mult(num1, num2);
           $("#display").text(result);
           break;
+        case "exp":
+          result = Math.pow(num1, num2);
+          $("#display").text(result);
+          break;
+        case "mod":
+          result = mod(num1, num2);
+          $("#display").text(result);
+          break;
         }
+
         num1 = result;
         num2 = "";
         operator = this.id;
@@ -56,6 +65,24 @@ $(document).ready(function(){
       }
 
   });
+  /////////////// Clear Button //////////////////
+    $("#button-land button.clear").click(function() {
+      $("#display").text("");
+      $("#old").text("");
+      num1 = "";
+      num2 = "";
+      operator = "";
+      readyToCalc = false;
+      result = "";
+    });
+
+    $("#button-land button#neg").click(function() {
+      if(!$("#display").text().includes('-')){
+        $("#display").prepend("-");
+      } else {
+        $("#display").text($("#display").text().slice(1,$("#display").text().length));
+      }
+    });
 });
 
 function add(number1, number2) {
@@ -69,4 +96,7 @@ function mult(number1, number2) {
 }
 function divide(number1, number2) {
   return number1 / number2 ;
+}
+function mod(number1, number2) {
+  return number1 % number2 ;
 }
