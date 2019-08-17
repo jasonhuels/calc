@@ -69,3 +69,7 @@ button {
   background-color: lightgrey;
   border-color: darkgrey;
 }
+
+#history {
+  text-align: right;
+}

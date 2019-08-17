@@ -30,6 +30,13 @@ $(document).ready(function(){
       $("#old").append(num2);
       if(this.id !== "equal") {
         $("#old").append(this.innerHTML);
+      } else {
+        if(readyToCalc) {
+          $("#old").append(this.innerHTML);
+          console.log($("#old").text());
+          $("#history").append($("#old").text());
+          $("#old").text("");
+        }
       }
       switch(operator) {
         case "add":
@@ -62,6 +69,11 @@ $(document).ready(function(){
         num2 = "";
         operator = this.id;
         readyToCalc = false;
+        if(this.id === "equal") {
+          $("#history").append(result + "<br>");
+          //num1 = "";
+        }
+
       }
 
   });
@@ -76,6 +88,7 @@ $(document).ready(function(){
       result = "";
     });
 
+  /////////////// +/- Button //////////////////
     $("#button-land button#neg").click(function() {
       if(!$("#display").text().includes('-')){
         $("#display").prepend("-");
