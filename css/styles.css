@@ -52,11 +52,12 @@ button {
 }
 
 #calculator {
-  width: 500px;
+  width: 470px;
   /* height: 900px; */
   padding: 20px;
   border: solid black;
   background-color: black;
+  border-radius: 10px;
 }
 
 #button-land {
